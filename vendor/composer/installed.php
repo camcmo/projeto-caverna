@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'projeto/caverna',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'd056d1af3f458160c42d5c26e23ef2877e52f5da',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'projeto/caverna' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'd056d1af3f458160c42d5c26e23ef2877e52f5da',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

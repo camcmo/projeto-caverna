@@ -6,6 +6,20 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit84944e59d978f9937bdddc6cd34cb678
 {
+    public static $prefixLengthsPsr4 = array (
+        'C' => 
+        array (
+            'CavernaGames\\' => 13,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'CavernaGames\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/project/php-classes/src',
+        ),
+    );
+
     public static $prefixesPsr0 = array (
         'S' => 
         array (
@@ -37,6 +51,8 @@ class ComposerStaticInit84944e59d978f9937bdddc6cd34cb678
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit84944e59d978f9937bdddc6cd34cb678::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit84944e59d978f9937bdddc6cd34cb678::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit84944e59d978f9937bdddc6cd34cb678::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit84944e59d978f9937bdddc6cd34cb678::$classMap;
 

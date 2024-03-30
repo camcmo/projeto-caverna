@@ -1,35 +1,21 @@
-<?php
+<?php 
+
 require_once("vendor/autoload.php");
 
-// // namespace
-// use Rain\Tpl;
+$app = new \Slim\Slim();
 
-// // config
-// $config = array(
-//     "tpl_dir"       => "templates/simple/",
-//     "cache_dir"     => "cache/",
-//     "debug"         => true, // set to false to improve the speed
-// );
+$app->config('debug', true);
 
-// Tpl::configure( $config );
+$app->get('/', function() {
+    
+	$sql = new CavernaGames\DB\Sql();
+	$results = $sql->select("SELECT * FROM tb_users");
 
 
-// // // Add PathReplace plugin (necessary to load the CSS with path replace)
-// // Tpl::registerPlugin( new Tpl\Plugin\PathReplace() );
+	echo json_encode($results);
 
+});
 
-// // create the Tpl object
-// $tpl = new Tpl;
+$app->run();
 
-// // // assign a variable
-// // $tpl->assign( "name", "Obi Wan Kenoby" );
-
-// // // assign an array
-// // $tpl->assign( "week", array( "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ) );
-
-// // // draw the template
-// $tpl->draw( "principal" );
-
-phpinfo();
-
-?>
+ ?>

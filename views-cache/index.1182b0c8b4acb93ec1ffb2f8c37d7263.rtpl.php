@@ -1,1 +1,1 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><h1>Hello</h1>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><img src="/res/site/img/1.png" alt="banner" id="banner">

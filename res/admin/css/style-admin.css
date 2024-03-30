@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+* a{
+    text-decoration: none;
+    color: white;
+}
+html {
+    background-image: url(./img/5594016.jpg);
+}
+
+.nav-bar {
+    background-color: rgb(67, 66, 66);
+    width: 250px;
+    height: 100%;
+    padding-bottom: 35px;
+
+}
+
+.nav-bar h3 {
+
+    padding: 25px;
+    text-align: center;
+    color: white;
+}
+
+.nav-bar i {
+    padding: 5px;
+    margin-right: 15px;
+    margin-left: 42%;
+    margin-top: 8%;
+    color: white;
+    font-size: 25px;
+ 
+}
+
+.title-bar{
+    background-color: grey;
+}
+
+.nav-bar li{
+    background-color: rgb(93, 88, 88);
+    padding: 15px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.nav-bar li:hover{
+    background-color: rgb(170, 157, 157);
+    transition: 0.5s;
+}
+
+.nav-bar h4{
+    padding: 25px;
+    text-align: center;
+    background-color: grey;
+}
+
+.nav-bar button{
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    border-radius: 5px;
+    background-color: rgb(180, 175, 175);
+    color: rgb(59, 50, 50);
+
+}
+.nav-bar button:hover{
+    background-color: rgb(124, 117, 117);
+    color: white;
+    transition: 0.5s;
+    
+}
+.button-atl{
+    text-align: center;
+    
+}
+
+#slidebar{
+    font-size: 12px;
+    display: none;
+
+
+}
+.body-market{
+    display: flex;
+}
+#slidebar-fr{
+    font-size: 12px;
+    display: none;
+
+}
+#slidebar-cup{
+    font-size: 12px;
+    display: none;
+}
+#slidebar-fat{
+    font-size: 12px;
+    display: none;
+}
+#slidebar-ped{
+    font-size: 12px;
+    display: none;
+}

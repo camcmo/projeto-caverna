@@ -10,14 +10,17 @@ class Page{
     
     private $tpl; //criou a variável de forma privada
     private $defaults = [
+        "header"=>true,
+		"footer"=>true,
         "data" =>[]
     ];
-    public function __construct($opts = array()){
+    public function __construct($opts = array(), $tpl_dir = '/views'){
 
         $this-> options = array_merge($this->defaults, $opts); //faz um merge entre o defaults e o array do opts, junta as partes
         $config = array(
-            "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"]. "/views", //acessar por variavel de ambiente a pasta local
-            "cache_dir"     => $_SERVER["DOCUMENT_ROOT"] ."/views-cache",
+            "base_url"      => null,
+            "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"].$tpl_dir, //acessar por variavel de ambiente a pasta local
+            "cache_dir"     => $_SERVER["DOCUMENT_ROOT"] .'/views-cache',
             "debug"         => false, // set to false to improve the speed
         );
         

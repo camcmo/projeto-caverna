@@ -1,0 +1,17 @@
+{
+    "name": "projeto/caverna",
+    "description": "projeto caverna games",
+    "authors": [
+        {
+            "name": "camilamoura6698",
+            "email": "147942308+camilamoura6698@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "monolog/monolog": "1.0.*",
+        "rain/raintpl": ">=3.0.0",
+        "slim/slim": "2.0"
+        
+    }
+}

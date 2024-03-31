@@ -114,10 +114,10 @@ class Slim
     );
 
     /********************************************************************************
-    * PSR-0 Autoloader
-    *
-    * Do not use if you are using Composer to autoload dependencies.
-    *******************************************************************************/
+     * PSR-0 Autoloader
+     *
+     * Do not use if you are using Composer to autoload dependencies.
+     *******************************************************************************/
 
     /**
      * Slim PSR-0 autoloader
@@ -125,12 +125,12 @@ class Slim
     public static function autoload($className)
     {
         $className = ltrim($className, '\\');
-        $fileName  = '';
+        $fileName = '';
         $namespace = '';
         if ($lastNsPos = strripos($className, '\\')) {
             $namespace = substr($className, 0, $lastNsPos);
             $className = substr($className, $lastNsPos + 1);
-            $fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+            $fileName = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
         }
         $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
 
@@ -148,8 +148,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Instantiation and Configuration
-    *******************************************************************************/
+     * Instantiation and Configuration
+     *******************************************************************************/
 
     /**
      * Constructor
@@ -284,8 +284,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Application Modes
-    *******************************************************************************/
+     * Application Modes
+     *******************************************************************************/
 
     /**
      * Get application mode
@@ -334,8 +334,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Logging
-    *******************************************************************************/
+     * Logging
+     *******************************************************************************/
 
     /**
      * Get application log
@@ -347,8 +347,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Routing
-    *******************************************************************************/
+     * Routing
+     *******************************************************************************/
 
     /**
      * Add GET|POST|PUT|DELETE route
@@ -421,12 +421,19 @@ class Slim
      * @see    mapRoute()
      * @return \Slim\Route
      */
+    // public function post()
+    // {
+    //     $args = func_get_args();
+
+    //     return $this->mapRoute($args)->via(\Slim\Http\Request::METHOD_POST, \Slim\Http\Request::METHOD_HEAD);
+    // }
     public function post()
     {
         $args = func_get_args();
 
         return $this->mapRoute($args)->via(\Slim\Http\Request::METHOD_POST);
     }
+
 
     /**
      * Add PUT route
@@ -561,8 +568,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Application Accessors
-    *******************************************************************************/
+     * Application Accessors
+     *******************************************************************************/
 
     /**
      * Get a reference to the Environment object
@@ -619,7 +626,7 @@ class Slim
     {
         if (!is_null($viewClass)) {
             $existingData = is_null($this->view) ? array() : $this->view->getData();
-            if ($viewClass instanceOf \Slim\View) {
+            if ($viewClass instanceof \Slim\View) {
                 $this->view = $viewClass;
             } else {
                 $this->view = new $viewClass();
@@ -632,8 +639,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Rendering
-    *******************************************************************************/
+     * Rendering
+     *******************************************************************************/
 
     /**
      * Render a template
@@ -658,8 +665,8 @@ class Slim
     }
 
     /********************************************************************************
-    * HTTP Caching
-    *******************************************************************************/
+     * HTTP Caching
+     *******************************************************************************/
 
     /**
      * Set Last-Modified HTTP Response Header
@@ -711,7 +718,8 @@ class Slim
 
         //Set etag value
         $value = '"' . $value . '"';
-        if ($type === 'weak') $value = 'W/'.$value;
+        if ($type === 'weak')
+            $value = 'W/' . $value;
         $this->response['ETag'] = $value;
 
         //Check conditional GET
@@ -745,8 +753,8 @@ class Slim
     }
 
     /********************************************************************************
-    * HTTP Cookies
-    *******************************************************************************/
+     * HTTP Cookies
+     *******************************************************************************/
 
     /**
      * Set unencrypted HTTP cookie
@@ -771,7 +779,8 @@ class Slim
             'domain' => is_null($domain) ? $this->config('cookies.domain') : $domain,
             'secure' => is_null($secure) ? $this->config('cookies.secure') : $secure,
             'httponly' => is_null($httponly) ? $this->config('cookies.httponly') : $httponly
-        ));
+        )
+        );
     }
 
     /**
@@ -867,12 +876,13 @@ class Slim
             'path' => is_null($path) ? $this->config('cookies.path') : $path,
             'secure' => is_null($secure) ? $this->config('cookies.secure') : $secure,
             'httponly' => is_null($httponly) ? $this->config('cookies.httponly') : $httponly
-        ));
+        )
+        );
     }
 
     /********************************************************************************
-    * Helper Methods
-    *******************************************************************************/
+     * Helper Methods
+     *******************************************************************************/
 
     /**
      * Get the absolute path to this Slim application's root directory
@@ -996,8 +1006,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Flash Messages
-    *******************************************************************************/
+     * Flash Messages
+     *******************************************************************************/
 
     /**
      * Set flash message for subsequent request
@@ -1034,8 +1044,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Hooks
-    *******************************************************************************/
+     * Hooks
+     *******************************************************************************/
 
     /**
      * Assign hook
@@ -1119,8 +1129,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Middleware
-    *******************************************************************************/
+     * Middleware
+     *******************************************************************************/
 
     /**
      * Add middleware
@@ -1138,8 +1148,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Runner
-    *******************************************************************************/
+     * Runner
+     *******************************************************************************/
 
     /**
      * Run
@@ -1224,7 +1234,7 @@ class Slim
                     $this->response['Allow'] = implode(' ', $httpMethodsAllowed);
                     $this->halt(405, 'HTTP method not allowed for the requested resource. Use one of these instead: ' . implode(', ', $httpMethodsAllowed));
                 } else {
-                   $this->notFound();
+                    $this->notFound();
                 }
             }
             $this->applyHook('slim.after.router');
@@ -1248,8 +1258,8 @@ class Slim
     }
 
     /********************************************************************************
-    * Error Handling and Debugging
-    *******************************************************************************/
+     * Error Handling and Debugging
+     *******************************************************************************/
 
     /**
      * Convert errors into ErrorException objects

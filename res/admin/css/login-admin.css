@@ -1,0 +1,107 @@
+:root{
+    --cor-de-fundo: rgb(146, 144, 144);
+    --cor-do-texto: rgb(67, 66, 66);
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+html {
+    background-color: var(--cor-de-fundo)
+}
+
+
+a{
+    text-decoration: none;
+    color: var(--cor-do-texto)
+}
+
+.login-logo a{
+    font-size: 30px;
+    color: var(--cor-do-texto);
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-top: 120px;
+    
+}
+.login-box-body {
+    background-color: white;
+    border-radius: 5px;
+    width: 400px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    
+}
+
+.login-box-msg{
+    padding: 15px;
+    text-align: center;
+}
+
+.form-control{
+    padding: 10px;
+    margin: 5px;
+    width: 350px;
+    
+}
+
+.checkbox{
+    padding: 10px;
+    text-align: center;
+}
+
+.col-xs-4 button{
+    background-color: var(--cor-do-texto);
+    padding: 10px;
+    color: var(--cor-de-fundo);
+    border-radius: 5px;
+    width: 150px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-top: 10px;;
+}
+
+.social-auth-links p{
+    padding: 10px;
+    text-align: center;
+}
+
+.social-auth-links a{
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+    width: 350px;
+}
+
+.social-auth-links .btn-facebook{
+    background-color: #3b5998;
+    color: white;
+    border-radius: 3px;
+}
+
+.social-auth-links .btn-google{
+    background-color: #FF0000;
+    color: white;
+    border-radius: 3px;
+}
+
+.social-auth-links i{
+    margin-right: 10px;
+}
+
+.register-auth{
+    text-align: center;
+    padding: 10px;
+    
+}

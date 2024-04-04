@@ -54,15 +54,25 @@ class Util
      * @var    array|string    $rawData
      * @return array|string
      */
+    // public static function stripSlashesIfMagicQuotes($rawData, $overrideStripSlashes = null)
+    // {
+    //     $strip = is_null($overrideStripSlashes) ? get_magic_quotes_gpc() : $overrideStripSlashes;
+    //     if ($strip) {
+    //         return self::_stripSlashes($rawData);
+    //     } else {
+    //         return $rawData;
+    //     }
+    // }
     public static function stripSlashesIfMagicQuotes($rawData, $overrideStripSlashes = null)
     {
-        $strip = is_null($overrideStripSlashes) ? get_magic_quotes_gpc() : $overrideStripSlashes;
+        $strip = is_null($overrideStripSlashes) ? false : $overrideStripSlashes;
         if ($strip) {
             return self::_stripSlashes($rawData);
         } else {
             return $rawData;
         }
     }
+
 
     /**
      * Strip slashes from string or array
@@ -95,10 +105,11 @@ class Util
         }
 
         //Merge settings with defaults
-        $settings = array_merge(array(
-            'algorithm' => MCRYPT_RIJNDAEL_256,
-            'mode' => MCRYPT_MODE_CBC
-        ), $settings);
+        $settings = array_merge(
+            array(
+                'algorithm' => MCRYPT_RIJNDAEL_256,
+                'mode' => MCRYPT_MODE_CBC
+            ), $settings);
 
         //Get module
         $module = mcrypt_module_open($settings['algorithm'], '', $settings['mode'], '');
@@ -144,10 +155,11 @@ class Util
         }
 
         //Merge settings with defaults
-        $settings = array_merge(array(
-            'algorithm' => MCRYPT_RIJNDAEL_256,
-            'mode' => MCRYPT_MODE_CBC
-        ), $settings);
+        $settings = array_merge(
+            array(
+                'algorithm' => MCRYPT_RIJNDAEL_256,
+                'mode' => MCRYPT_MODE_CBC
+            ), $settings);
 
         //Get module
         $module = mcrypt_module_open($settings['algorithm'], '', $settings['mode'], '');
@@ -194,7 +206,8 @@ class Util
         $secureString = base64_encode(self::encrypt($value, $key, $iv, array(
             'algorithm' => $algorithm,
             'mode' => $mode
-        )));
+        )
+        ));
         $verificationString = hash_hmac('sha1', $expires . $value, $key);
 
         return implode('|', array($expires, $secureString, $verificationString));
@@ -224,7 +237,8 @@ class Util
                 $data = self::decrypt(base64_decode($value[1]), $key, $iv, array(
                     'algorithm' => $algorithm,
                     'mode' => $mode
-                ));
+                )
+                );
                 $verificationString = hash_hmac('sha1', $value[0] . $data, $key);
                 if ($verificationString === $value[2]) {
                     return $data;
@@ -380,10 +394,10 @@ class Util
      */
     private static function get_iv($expires, $secret)
     {
-        $data1 = hash_hmac('sha1', 'a'.$expires.'b', $secret);
-        $data2 = hash_hmac('sha1', 'z'.$expires.'y', $secret);
+        $data1 = hash_hmac('sha1', 'a' . $expires . 'b', $secret);
+        $data2 = hash_hmac('sha1', 'z' . $expires . 'y', $secret);
 
-        return pack("h*", $data1.$data2);
+        return pack("h*", $data1 . $data2);
     }
 
 }

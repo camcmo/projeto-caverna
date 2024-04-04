@@ -3,7 +3,7 @@
         'name' => 'projeto/caverna',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'd056d1af3f458160c42d5c26e23ef2877e52f5da',
+        'reference' => 'e0ed9dbee77e0f24a8aef9ab3635a2648676d427',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'projeto/caverna' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'd056d1af3f458160c42d5c26e23ef2877e52f5da',
+            'reference' => 'e0ed9dbee77e0f24a8aef9ab3635a2648676d427',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

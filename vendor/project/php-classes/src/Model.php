@@ -17,7 +17,7 @@ class Model {
 		}
 
 	}
-
+// Cria o setter dinamicamente de acordo com o método, gerando um setter para cada método
 	public function __call($name, $args)
 	{
 // inteligencia para verificar se é um getter ou setter, para isso usa-se o métodos de string

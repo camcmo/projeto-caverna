@@ -154,6 +154,7 @@
         </script>
         <button>Inserir Cupom</button><br>
         <button>Consultar Pedido</button><br>
+        <a href="/admin/logout"class="btn btn-default btn-flat">Sair</a>
 
         <!-- <button class="close">Encerrar</button> -->
       </div>

@@ -1,0 +1,85 @@
+/* General Styling */
+.content-wrapper {
+    background-color: #9c9a9a;
+    padding: 40px;
+    width: 100%;
+}
+
+.content-header h1 {
+    padding: 25px;
+    font-size: 45px;
+}
+
+.breadcrumb {
+    list-style: none;
+}
+
+.breadcrumb li {
+    padding-bottom: 15px;
+}
+
+/* Table Styling */
+.table-striped {
+    margin-top: 5%;
+    font-size: 20px;
+}
+
+.table-striped th {
+    padding-right: 45px;
+}
+
+/* Form Styling */
+.box-body {
+    display: flex;
+    flex-direction: column; /* Align inputs vertically */
+}
+
+.box-body label {
+    margin-bottom: 10px; /* Space between label and input */
+}
+
+.box-body input {
+    text-align: center;
+    margin-left: 5%;
+    padding: 10px;
+    border-radius: 5px;
+    width: 400px; /* Set width to 400px */
+    margin-bottom: 10px; /* Space between inputs */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.checkbox {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 10px; /* Added margin */
+}
+
+.checkbox input[type="checkbox"] {
+    margin-right: 5px; /* Reduced margin */
+}
+
+.checkbox label {
+    color: #555;
+}
+
+.btn-success {
+    background-color: #3e3e3e;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.box-footer {
+    display: flex;
+}
+
+#nrphone{
+    margin-left: 40px;
+}
+
+#inadmin{
+    margin: 0;
+   width: 40px;
+}

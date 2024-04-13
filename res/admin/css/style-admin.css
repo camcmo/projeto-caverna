@@ -107,3 +107,11 @@ html {
     font-size: 12px;
     display: none;
 }
+
+.content-wrapper {
+    background-color: rgb(156, 154, 154);
+    padding: 40px;
+    width: 100%;
+}
+/* Usuários */
+

@@ -1,4 +1,6 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
+<link rel="stylesheet" href="/res/admin/css/users-style.css">
+
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">

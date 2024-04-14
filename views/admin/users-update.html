@@ -45,8 +45,8 @@
             </div>
           </div>
           <!-- /.box-body -->
-          <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Salvar</button>
+          <div class="box-footer-upd">
+            <button type="submit" class="btn btn-primary-update">Salvar</button>
           </div>
         </form>
       </div>

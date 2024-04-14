@@ -123,6 +123,17 @@ $app->post('/admin/users/create', function () use ($app) {
 
 $app->post('/admin/users/:iduser', function ($iduser) {
 	User::verifyLogin();
+
+	$user = new User();
+
+	$user->get((int)$iduser);
+
+	$user->setData($_POST);
+	
+	$user->update();
+
+	header("Location: /admin/users");
+	exit;
 });
 
 

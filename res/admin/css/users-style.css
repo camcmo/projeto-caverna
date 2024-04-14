@@ -83,3 +83,11 @@
     margin: 0;
    width: 40px;
 }
+
+.box-footer-upd button{
+    background-color: rgb(45, 43, 43);
+    color: white;
+    border-radius: 5px;
+    width: 150px;
+    padding: 10px;
+}

@@ -54,7 +54,7 @@
     </div>
     <!-- /.social-auth-links -->
  <div class="register-auth">
-    <a href="#">I forgot my password</a><br>
+    <a href="/admin/forgot">I forgot my password</a><br>
     <a href="register.html" class="text-center">Register a new membership</a>
   </div>
   </div>

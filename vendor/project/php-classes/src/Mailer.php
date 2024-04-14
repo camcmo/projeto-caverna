@@ -3,8 +3,11 @@
 
 
 namespace CavernaGames;
-require_once("vendor/autoload.php");
+
 use Rain\Tpl;
+
+require 'vendor/autoload.php'; // Certifique-se de que o caminho está correto
+
 
 class Mailer
 {

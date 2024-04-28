@@ -146,23 +146,36 @@ $app->get("/admin/forgot", function()
 	$page->setTpl("forgot");
 });
 
-$app->post('/admin/forgot', function()
-{
-	
-	$user = User::getForgot($_POST['email']);
 
-	header("Location: /admin/forgot/sent");
-	exit;
-
+$app->post('/admin/forgot', function() {
+    $user = User::getForgot($_POST['email']);
+    
+    // Enviar e-mail
+    $mailer = new CavernaGames\Mailer(/* argumentos do construtor */);
+    $result = $mailer->send();
+    
+    // Verificar se o e-mail foi enviado com sucesso
+    if ($result) {
+        // Redirecionar o usuário para a página de confirmação
+        header("Location: /admin/forgot/sent");
+        exit;
+    } else {
+        // Se houver um erro no envio do e-mail, exibir uma mensagem de erro
+        echo "Erro ao enviar e-mail";
+        exit;
+    }
 });
 
-$app->get("admin/forgot/sent", function(){
-	$page = new PageAdmin([
-		"header" => false,
-		"footer" => false
-	]);
-	$page->setTpl("forgot-sent");
+$app->get("/admin/forgot/sent", function() {
+    $page = new PageAdmin([
+        "header" => false,
+        "footer" => false
+    ]);
+    
+    $page->setTpl("forgot-sent");
 });
+
+
 
 $app->run();
 

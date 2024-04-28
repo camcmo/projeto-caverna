@@ -178,7 +178,7 @@ class User extends Model {
 				$mailer->send();
 
 				return $data;
-
+				
 			}
 		}
 	}

@@ -1,0 +1,38 @@
+:root{
+    --cor-de-fundo: rgb(146, 144, 144);
+    --cor-do-texto: rgb(67, 66, 66);
+
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+
+html {
+    background-color: var(--cor-de-fundo)
+}
+
+
+a{
+    text-decoration: none;
+    color: var(--cor-do-texto)
+}
+#title-logo{
+    font-size: 40px;
+}
+.lockscreen-wrapper{
+    text-align: center;
+    padding: 25px;
+    margin-top: 10%;
+    font-size: 25px;
+}
+
+.help-block{
+    text-align: center;
+    margin-top: 5%;
+}

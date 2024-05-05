@@ -7,6 +7,7 @@ use \Slim\Slim;
 use \CavernaGames\Page;
 use \CavernaGames\PageAdmin;
 use \CavernaGames\Model\User;
+use \CavernaGames\Model\Category;
 
 $app = new Slim();
 
@@ -208,6 +209,24 @@ $app->post("/admin/forgot/reset", function(){
 });
 
 
+$app->get("/admin/categories", function(){
+	$categories = Category::listAll();
+	$page = new PageAdmin();
+	
+	$page->setTpl("categories",[
+		'categories'=> $categories
+	]);
+
+});
+
+
+$app->get("/admin/categories/create", function(){
+	
+	$page = new PageAdmin();
+	
+	$page->setTpl("categories-create");
+
+});
 
 $app->run();
 

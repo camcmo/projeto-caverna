@@ -103,6 +103,7 @@
         <li><a href="./src/estoque/produtos.php">Produtos</a></li>
         <li><a href="./src/estoque/estoque.php">Estoque</a></li>
         <li><a href="/admin/users">Usuários</a></li>
+        <li><a href="/admin/categories">Categorias</a></li>
       </ul>
       <li class="toggle-btn-cup">Cupons e Descontos</li>
       <ul id="slidebar-cup">

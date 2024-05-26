@@ -1,6 +1,7 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <link rel="stylesheet" href="/res/admin/css/category.css">
+  <link rel="stylesheet" href="/res/admin/css/category-edit.css">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
@@ -23,7 +24,7 @@
             <a href="/admin/categories/create" class="btn btn-success">Cadastrar Categoria</a>
           </div>
 
-          <div class="box-body no-padding">
+          <div class="box-body no-padding category-create">
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -38,6 +39,7 @@
                 <tr>
                   <td><?php echo htmlspecialchars( $value1["idcategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                   <td><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                  <td><?php echo htmlspecialchars( $value1["desref"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
                   <td>
                     <a href="/admin/categories/<?php echo htmlspecialchars( $value1["idcategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i
                         class="fa fa-edit"></i> Editar</a>

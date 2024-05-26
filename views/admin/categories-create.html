@@ -30,6 +30,17 @@
             <div class="form-group">
               <label for="descategory">Nome da categoria</label>
               <input type="text" class="form-control" id="descategory" name="descategory" placeholder="Digite o nome da categoria">
+              <label for="descategory">Referência</label>
+              <select name="desref">
+                <option>Cartas de Magic</option>
+                <option>Tecnologia</option>
+                <option>Colecionáveis</option>
+                <option>Jogos</option>
+                <option>Presentes</option>
+                <option>Eventos</option>
+                <option>Alimentícios</option>
+
+              </select>
             </div>
           </div>
           <!-- /.box-body -->

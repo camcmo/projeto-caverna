@@ -1,6 +1,7 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <link rel="stylesheet" href="/res/admin/css/category.css">
+  <link rel="stylesheet" href="/res/admin/css/category-edit.css">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
@@ -23,7 +24,7 @@
             <a href="/admin/categories/create" class="btn btn-success">Cadastrar Categoria</a>
           </div>
 
-          <div class="box-body no-padding">
+          <div class="box-body no-padding category-create">
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -37,6 +38,7 @@
                 <tr>
                   <td>{$value.idcategory}</td>
                   <td>{$value.descategory}</td>
+                  <td>{$value.desref}</td>
                   <td>
                     <a href="/admin/categories/{$value.idcategory}" class="btn btn-primary btn-xs"><i
                         class="fa fa-edit"></i> Editar</a>

@@ -1,0 +1,27 @@
+:root{
+    --cor-de-fundo: rgb(146, 144, 144);
+    --cor-do-texto: rgb(67, 66, 66);
+
+}
+
+
+.table-striped td{
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px grey;
+    padding: 10px;
+    
+}
+
+.table-striped  a{
+    display: flex;
+}
+
+
+.btn-primary-edit{
+    color: var(--cor-de-fundo);
+    background-color: var(--cor-do-texto);
+    width: 150px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}

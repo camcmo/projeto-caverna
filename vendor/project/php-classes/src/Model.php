@@ -26,12 +26,11 @@ class Model
 		$method = substr($name, 0, 3);
 		$fieldName = substr($name, 3, strlen($name));
 
-		if (in_array($fieldName, $this->fields)) {
 
 			switch ($method) {
 
 				case "get":
-					return $this->values[$fieldName]; //retorna o fieldname
+					return (isset($this->values[$fieldName])) ? $this->values[$fieldName] : NULL ; ///retorna o fieldname
 					break;
 
 				case "set": //os valores que foram passados no atributo irão entrar no fieldname
@@ -40,7 +39,7 @@ class Model
 
 			}
 
-		}
+		
 
 	}
 

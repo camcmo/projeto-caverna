@@ -10,6 +10,7 @@
     padding: 15px;
     margin: 10px;
     color: var(--cor-de-fundo);
+   
 }
 
 .breadcrumb a{
@@ -45,3 +46,4 @@
     margin: 10px;
     border-radius: 5px;
 }
+

@@ -30,6 +30,7 @@ class Category extends Model {
 		));
 
 		$this->setData($results[0]);
+
 	
 	}
 	public function get($idcategory){
@@ -48,8 +49,9 @@ class Category extends Model {
 		$sql->query("DELETE FROM tb_categories WHERE idcategory = :idcategory", [
 			':idcategory'=> $this->getidcategory()
 		]);
-	}
 
+	}
+	
 	}
 		
 

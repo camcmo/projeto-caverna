@@ -32,7 +32,7 @@
             <li>
                 <a href="#">Cartas de Magic</a>
                 <ul class="submenu1">
-                    <li><a href="#">Teste 1</a></li>
+                    &lt;?php include 'categories-menu-magic.html'; ?&gt;                    <li><a href="#">Teste 1</a></li>
                     <li><a href="#">Teste 2</a></li>
                     <li><a href="#">Teste 3</a></li>
                     <li><a href="#">Teste 4</a></li>

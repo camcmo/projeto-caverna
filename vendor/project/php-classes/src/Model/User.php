@@ -28,7 +28,7 @@ class User extends Model {
 		if (count($results) === 0) {
 			throw new \Exception("Não foi possível fazer login.");
 		}
-
+		var_dump($results);
 		$data = $results[0];
 
 		if (password_verify($password, $data["despassword"])) {
@@ -78,7 +78,7 @@ class User extends Model {
 	{
 		$sql = new Sql();
 		
-		return $sql->select('SELECT * FROM tb_users');
+		return $sql->select('SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) ORDER BY b.desperson');
 
 	}
 
@@ -111,10 +111,8 @@ class User extends Model {
 	public function get($iduser)
 	{
 			$sql = new Sql();
-			$results = $sql->select("SELECT * 
-			FROM tb_users 
-			WHERE iduser = :iduser;
-		", array(
+			$results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_users b USING (idperson) 
+			WHERE a.iduser = :iduser", array(
 			":iduser"=>$iduser
 		));
 		

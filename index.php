@@ -69,13 +69,14 @@ $app->get('/admin/users', function () {
 
 });
 
-// $app->get('/admin/users/create', function () {
-// 	User::verifyLogin();
-// 	$page = new PageAdmin();
+$app->get('/admin/users/create', function () {
+	User::verifyLogin();
+	$page = new PageAdmin();
 
-// 	$page->setTpl("users-create");
+	$page->setTpl("users-create");
 
-// });
+});
+
 $app->post("/admin/users/create", function () {
 
 	User::verifyLogin();
@@ -137,6 +138,8 @@ $app->post('/admin/users/create', function () use ($app) {
 	// Depuração para verificar os dados recebidos via POST
 	
 	$user->setData($_POST);
+
+
 
 	// Depuração para verificar o valor do campo desperson
 	$user->save();

@@ -1,4 +1,6 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><footer>
+<?php if(!class_exists('Rain\Tpl')){exit;}?>
+
+<footer>
     <img src="/res/site/img/logo.png" alt="Logotipo" id="logo-footer" class="logo-footer"/>
     <div class="div_1">
         <h2>ATENDIMENTO AO CLIENTE</h2>

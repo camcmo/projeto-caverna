@@ -13,13 +13,19 @@ $app = new Slim();
 
 $app->config('debug', true);
 
-$app->get('/', function () {
+$app->get("/", function(){
 
 
-	$page = new Page();
+    $tecnologia = Category::Tecnologia();
+
+    $page = new Page();
+	
+    $page->setTpl("header", [
+        'tecnologia' => $tecnologia
+    ]);
 	$page->setTpl("index");
-
 });
+
 
 
 $app->get('/admin', function () {
@@ -247,6 +253,19 @@ $app->get("/admin/categories", function(){
 	]);
 
 });
+$app->get("/admin/categories/tecnologia", function(){
+	User::verifyLogin();
+
+	$tecnologia = Category::Tecnologia();
+	$page = new PageAdmin();
+	
+	$page->setTpl("tecnologia",[
+		'tecnologia'=> $tecnologia 
+	]);
+
+});
+
+
 
 
 $app->get("/admin/categories/create", function(){

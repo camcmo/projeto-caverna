@@ -10,13 +10,16 @@ use \CavernaGames\Mailer;
 class Category extends Model {
 
 	
-
 	
 	public static function listAll()
 	{
 		$sql = new Sql();
 		
-		return $sql->select('SELECT * FROM tb_categories ORDER BY descategory');
+		return $sql->select('SELECT *
+		FROM tb_categories
+		INNER JOIN tb_ref ON tb_categories.descategory = tb_ref.descategory
+		ORDER BY tb_categories.idcategory;
+		');
 
 	}
 	public function save(){
@@ -46,10 +49,18 @@ class Category extends Model {
 	}
 	public function delete(){
 		$sql = new Sql();
-		$sql->query("DELETE FROM tb_categories WHERE idcategory = :idcategory", [
-			':idcategory'=> $this->getidcategory()
-		]);
+		$results = $sql->select('CALL DeleteCategoriesAndRef');
+	}
 
+	public static function Tecnologia(){
+		$sql = new Sql();
+
+		return $sql->select("SELECT *
+		FROM tb_ref
+		WHERE desref = 'Tecnologia'");
+
+		
+		
 	}
 	
 	}

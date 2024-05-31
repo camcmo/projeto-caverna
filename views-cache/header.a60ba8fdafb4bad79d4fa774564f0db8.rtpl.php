@@ -41,13 +41,13 @@
             </li>
             <li>
                 <a href="#">Tecnologia</a>
+
+
                 <ul class="submenu2">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
-                </ul>
+                    <?php $counter1=-1;  if( isset($tecnologia) && ( is_array($tecnologia) || $tecnologia instanceof Traversable ) && sizeof($tecnologia) ) foreach( $tecnologia as $key1 => $value1 ){ $counter1++; ?>
+                    <li><a href="/<?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+                    <?php } ?>
+                     </ul>
             </li>
             <li>
                 <a href="#">Colecionáveis</a>

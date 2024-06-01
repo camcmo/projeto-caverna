@@ -47,21 +47,22 @@ class Category extends Model {
 
 	
 	}
-	public function get($idcategory){
+	public function get($idref){
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT * FROM tb_categories WHERE idcategory = :idcategory",[
-			':idcategory'=>$idcategory
+		$results = $sql->select("SELECT * FROM tb_ref WHERE idref = :idref",[
+			':idref'=>$idref
 		]);
 
 		$this->setData($results[0]);
 
 
 	}
-	// public function delete($idcategory){
-	// 	$sql = new Sql();
-	// 	$results = $sql->select ('CALL DeleteCategoriesAndRef');
-	// }
+	public function delete(){
+		$sql = new Sql();
+		$sql->query('DELETE FROM tb_ref WHERE idref = 	:idref',[
+			':idref'=> $this->getidref()]);
+	}
 
 	public static function Tecnologia(){
 		$sql = new Sql();

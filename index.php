@@ -402,6 +402,18 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
 	header("Location: /admin/categories ");
 	exit;
 });
+
+// $app->get("/Hambúrgueres", function()
+// {
+// 	$page = new PageAdmin([
+// 		"header" => false,
+// 		"footer" => false
+// 	]);
+
+// 	$page->setTpl("forgot");
+// });
+
+
 $app->run();
 
 ?>

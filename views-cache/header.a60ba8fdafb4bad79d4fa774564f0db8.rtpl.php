@@ -32,11 +32,9 @@
             <li>
                 <a href="#">Cartas de Magic</a>
                 <ul class="submenu1">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    <?php $counter1=-1;  if( isset($cartas) && ( is_array($cartas) || $cartas instanceof Traversable ) && sizeof($cartas) ) foreach( $cartas as $key1 => $value1 ){ $counter1++; ?>
+                    <li><a href="/<?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+                    <?php } ?>
                 </ul>
             </li>
             <li>
@@ -52,51 +50,41 @@
             <li>
                 <a href="#">Colecionáveis</a>
                 <ul class="submenu3">
-                    <li><a href="./src/pokemon.html">Pokémon</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    <?php $counter1=-1;  if( isset($colecionaveis) && ( is_array($colecionaveis) || $colecionaveis instanceof Traversable ) && sizeof($colecionaveis) ) foreach( $colecionaveis as $key1 => $value1 ){ $counter1++; ?>
+                    <li><a href="/<?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+                    <?php } ?>
                 </ul>
             </li>
             <li>
                 <a href="#">Jogos</a>
                 <ul class="submenu4">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    <?php $counter1=-1;  if( isset($jogos) && ( is_array($jogos) || $jogos instanceof Traversable ) && sizeof($jogos) ) foreach( $jogos as $key1 => $value1 ){ $counter1++; ?>
+                    <li><a href="/<?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+                    <?php } ?>
                 </ul>
             </li>
             <li>
                 <a href="#">Presentes</a>
                 <ul class="submenu5">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    <?php $counter1=-1;  if( isset($presentes) && ( is_array($presentes) || $presentes instanceof Traversable ) && sizeof($presentes) ) foreach( $presentes as $key1 => $value1 ){ $counter1++; ?>
+                    <li><a href="/<?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+                    <?php } ?>
                 </ul>
             </li>
             <li>
                 <a href="#">Eventos</a>
                 <ul class="submenu6">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    <?php $counter1=-1;  if( isset($eventos) && ( is_array($eventos) || $eventos instanceof Traversable ) && sizeof($eventos) ) foreach( $eventos as $key1 => $value1 ){ $counter1++; ?>
+                    <li><a href="/<?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+                    <?php } ?>
                 </ul>
             </li>
             <li>
                 <a href="#">Alimentícios</a>
                 <ul class="submenu7">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    <?php $counter1=-1;  if( isset($alimenticios) && ( is_array($alimenticios) || $alimenticios instanceof Traversable ) && sizeof($alimenticios) ) foreach( $alimenticios as $key1 => $value1 ){ $counter1++; ?>
+                    <li><a href="/<?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></li>
+                    <?php } ?>
                 </ul>
             </li>
         </ul>

@@ -142,7 +142,7 @@ class User extends Model {
 	{
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT * FROM db_ecommerce.tb_users WHERE desemail=:email", array(
+		$results = $sql->select("SELECT * FROM tb_persons a INNER JOIN tb_users b USING(idperson) WHERE a.desemail = :email", array(
 			":email" => $email
 		));
 		
@@ -186,8 +186,13 @@ class User extends Model {
 		$idrecovery = openssl_decrypt(base64_decode($code), 'aes-128-ecb', User::SECRET, OPENSSL_RAW_DATA);
 
 		$sql = new Sql();
-		$results = $sql->select("SELECT * FROM tb_userspasswordsrecoveries a INNER JOIN tb_users b USING (iduser) WHERE a.idrecovery = :idrecovery AND
-		a.dtrecovery IS NULL AND DATE_ADD(a.dtregister, INTERVAL 1 HOUR) >= NOW();",
+		$results = $sql->select("SELECT * 
+		FROM tb_userspasswordsrecoveries a
+		INNER JOIN tb_users b USING (iduser)
+		INNER JOIN tb_persons c USING (idperson)
+		WHERE a.idrecovery = :idrecovery 
+		  AND a.dtrecovery IS NULL 
+		  AND DATE_ADD(a.dtregister, INTERVAL 1 HOUR) >= NOW();",
 		array(
 			":idrecovery" =>$idrecovery
 		));

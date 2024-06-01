@@ -11,17 +11,28 @@ class Category extends Model {
 
 	
 	
-	public static function listAll()
-	{
-		$sql = new Sql();
-		
-		return $sql->select('SELECT *
-		FROM tb_categories
-		INNER JOIN tb_ref ON tb_categories.descategory = tb_ref.descategory
-		ORDER BY tb_categories.idcategory;
-		');
+	// public static function listAll()
+	// {
+	// 	$sql = new Sql();
 
-	}
+	// 	$idref = $sql->select("SELECT tb_ref.idref FROM tb_ref");
+
+		
+	// 	return $sql->select('SELECT tb_ref.descategory, tb_ref.desref FROM tb_ref WHERE idref = :idref',array(
+	// 		'idref'=> $idref
+	// 	));
+		
+		
+
+	// }
+	public static function listAll()
+{
+    $sql = new Sql();
+
+    return $sql->select('SELECT tb_ref.idref AS idcategory, tb_ref.descategory, tb_ref.desref FROM tb_ref ORDER BY tb_ref.desref');
+}
+
+
 	public function save(){
 		$sql = new Sql();
 
@@ -47,10 +58,10 @@ class Category extends Model {
 
 
 	}
-	public function delete(){
-		$sql = new Sql();
-		$results = $sql->select('CALL DeleteCategoriesAndRef');
-	}
+	// public function delete($idcategory){
+	// 	$sql = new Sql();
+	// 	$results = $sql->select ('CALL DeleteCategoriesAndRef');
+	// }
 
 	public static function Tecnologia(){
 		$sql = new Sql();
@@ -58,6 +69,66 @@ class Category extends Model {
 		return $sql->select("SELECT *
 		FROM tb_ref
 		WHERE desref = 'Tecnologia'");
+
+		
+		
+	}
+	public static function Cartas(){
+		$sql = new Sql();
+
+		return $sql->select("SELECT *
+		FROM tb_ref
+		WHERE desref = 'Cartas de Magic'");
+
+		
+		
+	}
+	public static function Colecionaveis(){
+		$sql = new Sql();
+
+		return $sql->select("SELECT *
+		FROM tb_ref
+		WHERE desref = 'Colecionáveis'");
+
+		
+		
+	}
+	public static function Jogos(){
+		$sql = new Sql();
+
+		return $sql->select("SELECT *
+		FROM tb_ref
+		WHERE desref = 'Jogos'");
+
+		
+		
+	}
+	public static function Presentes(){
+		$sql = new Sql();
+
+		return $sql->select("SELECT *
+		FROM tb_ref
+		WHERE desref = 'Presentes'");
+
+		
+		
+	}
+	public static function Eventos(){
+		$sql = new Sql();
+
+		return $sql->select("SELECT *
+		FROM tb_ref
+		WHERE desref = 'Eventos'");
+
+		
+		
+	}
+	public static function Alimenticios(){
+		$sql = new Sql();
+
+		return $sql->select("SELECT *
+		FROM tb_ref
+		WHERE desref = 'Alimentícios'");
 
 		
 		

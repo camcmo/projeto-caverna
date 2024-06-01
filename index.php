@@ -17,11 +17,26 @@ $app->get("/", function(){
 
 
     $tecnologia = Category::Tecnologia();
+	$cartas = Category::Cartas();
+	$colecionaveis = Category::Colecionaveis();
+	$jogos = Category::Jogos();
+	$presentes = Category::Presentes();
+	$eventos = Category::Eventos();
+	$alimenticios = Category::Alimenticios();
+
+
 
     $page = new Page();
 	
     $page->setTpl("header", [
-        'tecnologia' => $tecnologia
+        'tecnologia' => $tecnologia,
+		'cartas'=> $cartas,
+		'jogos'=> $jogos,
+		'presentes'=> $presentes,
+		'eventos'=> $eventos,
+		'alimenticios'=>$alimenticios,
+		'colecionaveis' => $colecionaveis
+		
     ]);
 	$page->setTpl("index");
 });
@@ -265,7 +280,73 @@ $app->get("/admin/categories/tecnologia", function(){
 
 });
 
+$app->get("/admin/categories/cartas", function(){
+	User::verifyLogin();
 
+	$cartas = Category::Cartas();
+	$page = new PageAdmin();
+	
+	$page->setTpl("cartas",[
+		'cartas'=> $cartas 
+	]);
+
+});
+
+$app->get("/admin/categories/colecionaveis", function(){
+	User::verifyLogin();
+
+	$colecionaveis = Category::Colecionaveis();
+	$page = new PageAdmin();
+	
+	$page->setTpl("colecionaveis",[
+		'colecionaveis'=> $colecionaveis
+	]);
+
+});
+$app->get("/admin/categories/jogos", function(){
+	User::verifyLogin();
+
+	$jogos = Category::Jogos();
+	$page = new PageAdmin();
+	
+	$page->setTpl("cartas",[
+		'jogos'=> $jogos 
+	]);
+
+});
+$app->get("/admin/categories/presentes", function(){
+	User::verifyLogin();
+
+	$presentes = Category::Presentes();
+	$page = new PageAdmin();
+	
+	$page->setTpl("presentes",[
+		'presentes'=> $presentes
+	]);
+
+});
+$app->get("/admin/categories/eventos", function(){
+	User::verifyLogin();
+
+	$eventos = Category::Eventos();
+	$page = new PageAdmin();
+	
+	$page->setTpl("eventos",[
+		'eventos'=> $eventos 
+	]);
+
+});
+$app->get("/admin/categories/alimenticios", function(){
+	User::verifyLogin();
+
+	$alimenticios = Category::Cartas();
+	$page = new PageAdmin();
+	
+	$page->setTpl("alimenticios",[
+		'alimenticios'=> $alimenticios
+	]);
+
+});
 
 
 $app->get("/admin/categories/create", function(){

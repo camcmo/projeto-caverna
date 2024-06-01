@@ -32,11 +32,9 @@
             <li>
                 <a href="#">Cartas de Magic</a>
                 <ul class="submenu1">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    {loop="$cartas"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
                 </ul>
             </li>
             <li>
@@ -52,51 +50,41 @@
             <li>
                 <a href="#">Colecionáveis</a>
                 <ul class="submenu3">
-                    <li><a href="./src/pokemon.html">Pokémon</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    {loop="$colecionaveis"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
                 </ul>
             </li>
             <li>
                 <a href="#">Jogos</a>
                 <ul class="submenu4">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    {loop="$jogos"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
                 </ul>
             </li>
             <li>
                 <a href="#">Presentes</a>
                 <ul class="submenu5">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    {loop="$presentes"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
                 </ul>
             </li>
             <li>
                 <a href="#">Eventos</a>
                 <ul class="submenu6">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    {loop="$eventos"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
                 </ul>
             </li>
             <li>
                 <a href="#">Alimentícios</a>
                 <ul class="submenu7">
-                    <li><a href="#">Teste 1</a></li>
-                    <li><a href="#">Teste 2</a></li>
-                    <li><a href="#">Teste 3</a></li>
-                    <li><a href="#">Teste 4</a></li>
-                    <li><a href="#">Teste 5</a></li>
+                    {loop="$alimenticios"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
                 </ul>
             </li>
         </ul>

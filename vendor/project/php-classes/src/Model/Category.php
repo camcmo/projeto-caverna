@@ -6,25 +6,12 @@ namespace CavernaGames\Model;
 use \CavernaGames\DB\Sql;
 use \CavernaGames\Model;
 use \CavernaGames\Mailer;
-
+use \CavernaGames\Model\Import;
+use \CavernaGames\Model\Incluse;
 class Category extends Model {
 
 	
 	
-	// public static function listAll()
-	// {
-	// 	$sql = new Sql();
-
-	// 	$idref = $sql->select("SELECT tb_ref.idref FROM tb_ref");
-
-		
-	// 	return $sql->select('SELECT tb_ref.descategory, tb_ref.desref FROM tb_ref WHERE idref = :idref',array(
-	// 		'idref'=> $idref
-	// 	));
-		
-		
-
-	// }
 	public static function listAll()
 {
     $sql = new Sql();
@@ -44,6 +31,7 @@ class Category extends Model {
 		));
 
 		$this->setData($results[0]);
+		return $this->getdescategory();
 
 	
 	}

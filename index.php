@@ -8,6 +8,8 @@ use \CavernaGames\Page;
 use \CavernaGames\PageAdmin;
 use \CavernaGames\Model\User;
 use \CavernaGames\Model\Category;
+use \CavernaGames\Model\Import;
+use \CavernaGames\Model\Incluse;
 
 $app = new Slim();
 
@@ -365,6 +367,11 @@ $app->post("/admin/categories/create" , function(){
 	$category = new Category();
 	$category->setData($_POST);
 	$category->save();
+
+
+
+	$categoryController = new Incluse();
+	$categoryController->IncluirRota();
 	header("Location: /admin/categories");
 	exit;
 });

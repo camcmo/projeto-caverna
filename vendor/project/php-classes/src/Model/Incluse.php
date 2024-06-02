@@ -1,23 +1,27 @@
 <?php
 
-namespace CavernaGames {
-    use \Exception;
+namespace CavernaGames\Model {
+   
+    
     use \CavernaGames\Model;
     use \CavernaGames\Model\Category;
+    use \CavernaGames\Model\Import;
 
     class Incluse extends Model {
         
-        public function IncluirRota() {
+        public static function IncluirRota() {
             try {
+
+                            
                 // Cria uma instância da classe Category
                 $category = new Category();
-            
+                
                 // Supondo que os valores vêm de um formulário ou API
                 // Por exemplo:
                 $idcategory = $_POST['idcategory']; // ou qualquer fonte de dados dinâmica
                 $descategory = $_POST['descategory'];
                 $desref = $_POST['desref'];
-            
+                
                 // Define os valores da categoria
                 $category->setidcategory($idcategory);
                 $category->setdescategory($descategory);

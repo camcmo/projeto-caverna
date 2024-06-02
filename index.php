@@ -6,6 +6,7 @@ require_once ("functions.php");
 use \Slim\Slim;
 use \CavernaGames\Page;
 use \CavernaGames\PageAdmin;
+use \CavernaGames\Model;
 use \CavernaGames\Model\User;
 use \CavernaGames\Model\Category;
 use \CavernaGames\Model\Import;
@@ -368,10 +369,14 @@ $app->post("/admin/categories/create" , function(){
 	$category->setData($_POST);
 	$category->save();
 
+	$descat = $_POST['descategory'];
 
 
-	$categoryController = new Incluse();
-	$categoryController->IncluirRota();
+	$categoryc = new Import();
+	$categoryc->createRoute($descat);
+	$categoryc->addRouteToFile($descat, $_SERVER['DOCUMENT_ROOT'] . "/index.php", "\$app->run();");
+	// $categoryController = new Incluse();
+	// $categoryController->IncluirRota();
 	header("Location: /admin/categories");
 	exit;
 });
@@ -409,16 +414,6 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
 	header("Location: /admin/categories ");
 	exit;
 });
-
-// $app->get("/Hambúrgueres", function()
-// {
-// 	$page = new PageAdmin([
-// 		"header" => false,
-// 		"footer" => false
-// 	]);
-
-// 	$page->setTpl("forgot");
-// });
 
 
 $app->run();

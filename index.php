@@ -5,6 +5,7 @@ require_once ("functions.php");
 
 use \Slim\Slim;
 use \CavernaGames\Page;
+use \CavernaGames\PageCategory;
 use \CavernaGames\PageAdmin;
 use \CavernaGames\Model;
 use \CavernaGames\Model\User;
@@ -368,16 +369,16 @@ $app->post("/admin/categories/create" , function(){
 	$category = new Category();
 	$category->setData($_POST);
 	$category->save();
+	
 
 	$descat = $_POST['descategory'];
-
+	$categorycx = new Incluse();
+	$categorycx->IncluirHTML($descat,$_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . 'categories');
 
 	$categoryc = new Import();
 	$categoryc->createRoute($descat);
 	$categoryc->addRouteToFile($descat, $_SERVER['DOCUMENT_ROOT'] . "/index.php", "\$app->run();");
-	// $categoryController = new Incluse();
-	// $categoryController->IncluirRota();
-	header("Location: /admin/categories");
+	
 	exit;
 });
 
@@ -414,8 +415,64 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
 	header("Location: /admin/categories ");
 	exit;
 });
+   
 
 
+    $app->get("/PLAYSTATION", function() {
+        $page = new PageCategory([
+            "header" => false,
+            "footer" => false
+        ]);
+
+        $page->setTpl('PLAYSTATION');
+    });
+    $app->get("/Caverna", function() {
+        $page = new PageCategory([
+            "header" => false,
+            "footer" => false
+        ]);
+
+        $page->setTpl('Caverna');
+    });
+    $app->get("/Xbox", function() {
+        $page = new PageCategory([
+            "header" => false,
+            "footer" => false
+        ]);
+
+        $page->setTpl('Xbox');
+    });
+    $app->get("/Lanches", function() {
+        $page = new PageCategory([
+            "header" => false,
+            "footer" => false
+        ]);
+
+        $page->setTpl('Lanches');
+    });
+    $app->get("/Naruto", function() {
+        $page = new PageCategory([
+            "header" => false,
+            "footer" => false
+        ]);
+
+        $page->setTpl('Naruto');
+    });
+    $app->get("/Camisetas", function() {
+        $page = new PageCategory([
+            "header" => false,
+            "footer" => false
+        ]);
+
+        $page->setTpl('Camisetas');
+    });
+    $app->get("/Camisetas", function() {
+        $page = new PageCategory([
+            "header" => false,
+            "footer" => false
+        ]);
+
+        $page->setTpl('Camisetas');
+    });
 $app->run();
-
 ?>

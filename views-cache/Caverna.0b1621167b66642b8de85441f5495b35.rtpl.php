@@ -1,32 +1,15 @@
-<?php
-
-namespace CavernaGames\Model {
-   
-    
-    use \CavernaGames\Model;
-    use \CavernaGames\Model\Category;
-    use \CavernaGames\Model\Import;
-
-    class Incluse extends Model {
-        
-        public  function IncluirHTML($routeName, $pasta) {
-            $caminho = $pasta . '/' .$routeName.'.html';
-
-            $arquivo = fopen($caminho, 'w');
-
-
-            $conteudoHTML = "
+<?php if(!class_exists('Rain\Tpl')){exit;}?>
             <!DOCTYPE html>
             <html lang='en'>
             <head>
                 <meta charset='UTF-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                 <link rel='stylesheet' href='style-cat.css'>
-                <title>{$routeName} - Document</title>
+                <title>Caverna - Document</title>
             </head>
             <body>
                 <header>
-                    <h1>{$routeName}</h1>
+                    <h1>Caverna</h1>
                 </header>
                 <nav>
                     <ul>
@@ -46,18 +29,4 @@ namespace CavernaGames\Model {
                 </footer>
             </body>
             </html>
-            ";
             
-            if($arquivo){
-                fwrite($arquivo, $conteudoHTML);
-
-                fclose($arquivo);
-
-                echo "html gerado com sucesso";
-            }else{
-                throw new \Exception("Não foi possível criar o arquivo HTML". $caminho);
-            }
-        }
-    }
-}
-?>

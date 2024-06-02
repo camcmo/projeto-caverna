@@ -19,20 +19,21 @@ class Import extends Category
     {
 
         $routeName = strval($routeName);
-        var_dump($routeName);
         // Sanitiza o nome da rota para evitar caracteres especiais
         $routeName = preg_replace('/[^a-zA-Z0-9_]/', '', $routeName);
 
         return <<<PHP
         \$app->get("/$routeName", function() {
-            \$page = new PageAdmin([
+            \$page = new PageCategory([
                 "header" => false,
                 "footer" => false
             ]);
-
-            \$page->setTpl("forgot");
+    
+            \$page->setTpl('$routeName');
         });
-        PHP;
+    PHP;
+    
+    
     }
     public function addRouteToFile($routeName, $filePath, $searchString)
     {
@@ -43,15 +44,25 @@ class Import extends Category
         $file = fopen($filePath, 'r+');
     
         if ($file) {
-            // Encontra a posição do texto de busca
-            $position = strpos(stream_get_contents($file), $searchString);
+            // Encontra a posição da última ocorrência do texto de busca
+            $content = stream_get_contents($file);
+            $lastPosition = strrpos($content, $searchString);
     
-            if ($position !== false) {
+            if ($lastPosition !== false) {
                 // Move o ponteiro de arquivo para a posição encontrada
-                fseek($file, $position);
+                fseek($file, $lastPosition);
+    
+                // Lê o conteúdo após a última ocorrência de $app->run();
+                $remainingContent = stream_get_contents($file);
+    
+                // Move o ponteiro de arquivo de volta para a posição encontrada
+                fseek($file, $lastPosition);
     
                 // Escreve o código da rota no arquivo
-                fwrite($file, "\n" . $routeCode . "\n");
+                fwrite($file, $routeCode . "\n");
+    
+                // Escreve o conteúdo restante de volta ao arquivo
+                fwrite($file, $remainingContent);
     
                 // Fecha o arquivo
                 fclose($file);
@@ -63,7 +74,13 @@ class Import extends Category
             // Caso o arquivo não possa ser aberto, lança um erro
             throw new Exception("Não foi possível abrir o arquivo: " . $filePath);
         }
+         header("Location: /admin/categories");
+         exit;
+
+
     }
+    
+    
     
 }
 

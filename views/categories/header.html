@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caverna Games | Home</title>
+    <link rel="stylesheet" href="/res/site/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+
+<body>
+    <header class="navegate">
+        <img src="/res/site/img/logo.png" alt="Logotipo" id="logo" class="logo" />
+        <span id="title">CAVERNA GAMES</span>
+        <input type="text" placeholder="Faça sua busca..." name="busca" id="search" class="search" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span class="login-user">
+            <i class="fa-solid fa-user"></i>
+            <span><a href="./src/inter/login.html">Faça seu login</a> ou <a href="#">Cadastre-se</a></span>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </span>
+
+    </header>
+    <nav class="navigation">
+        <ul>
+            <li>
+                <a href="#">Cartas de Magic</a>
+                <ul class="submenu1">
+                    {loop="$cartas"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
+                </ul>
+            </li>
+            <li>
+                <a href="#">Tecnologia</a>
+
+
+                <ul class="submenu2">
+                    {loop="$tecnologia"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
+                     </ul>
+            </li>
+            <li>
+                <a href="#">Colecionáveis</a>
+                <ul class="submenu3">
+                    {loop="$colecionaveis"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
+                </ul>
+            </li>
+            <li>
+                <a href="#">Jogos</a>
+                <ul class="submenu4">
+                    {loop="$jogos"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
+                </ul>
+            </li>
+            <li>
+                <a href="#">Presentes</a>
+                <ul class="submenu5">
+                    {loop="$presentes"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
+                </ul>
+            </li>
+            <li>
+                <a href="#">Eventos</a>
+                <ul class="submenu6">
+                    {loop="$eventos"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
+                </ul>
+            </li>
+            <li>
+                <a href="#">Alimentícios</a>
+                <ul class="submenu7">
+                    {loop="$alimenticios"}
+                    <li><a href="/{$value.descategory}">{$value.descategory}</a></li>
+                    {/loop}
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    </nav>

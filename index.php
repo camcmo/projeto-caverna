@@ -418,61 +418,90 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
    
 
 
-    $app->get("/PLAYSTATION", function() {
-        $page = new PageCategory([
-            "header" => false,
-            "footer" => false
-        ]);
-
-        $page->setTpl('PLAYSTATION');
-    });
-    $app->get("/Caverna", function() {
-        $page = new PageCategory([
-            "header" => false,
-            "footer" => false
-        ]);
-
-        $page->setTpl('Caverna');
-    });
-    $app->get("/Xbox", function() {
-        $page = new PageCategory([
-            "header" => false,
-            "footer" => false
-        ]);
-
-        $page->setTpl('Xbox');
-    });
-    $app->get("/Lanches", function() {
-        $page = new PageCategory([
-            "header" => false,
-            "footer" => false
-        ]);
-
-        $page->setTpl('Lanches');
-    });
+  
     $app->get("/Naruto", function() {
-        $page = new PageCategory([
-            "header" => false,
-            "footer" => false
+        $tecnologia = Category::Tecnologia();
+        $cartas = Category::Cartas();
+        $colecionaveis = Category::Colecionaveis();
+        $jogos = Category::Jogos();
+        $presentes = Category::Presentes();
+        $eventos = Category::Eventos();
+        $alimenticios = Category::Alimenticios();
+    
+        $page = new PageCategory();
+        $page->setTpl("header", [
+            'tecnologia' => $tecnologia,
+            'cartas'=> $cartas,
+            'jogos'=> $jogos,
+            'presentes'=> $presentes,
+            'eventos'=> $eventos,
+            'alimenticios'=> $alimenticios,
+            'colecionaveis' => $colecionaveis
         ]);
-
         $page->setTpl('Naruto');
     });
     $app->get("/Camisetas", function() {
-        $page = new PageCategory([
-            "header" => false,
-            "footer" => false
+        $tecnologia = Category::Tecnologia();
+        $cartas = Category::Cartas();
+        $colecionaveis = Category::Colecionaveis();
+        $jogos = Category::Jogos();
+        $presentes = Category::Presentes();
+        $eventos = Category::Eventos();
+        $alimenticios = Category::Alimenticios();
+    
+        $page = new PageCategory();
+        $page->setTpl("header", [
+            'tecnologia' => $tecnologia,
+            'cartas'=> $cartas,
+            'jogos'=> $jogos,
+            'presentes'=> $presentes,
+            'eventos'=> $eventos,
+            'alimenticios'=> $alimenticios,
+            'colecionaveis' => $colecionaveis
         ]);
-
         $page->setTpl('Camisetas');
     });
-    $app->get("/Camisetas", function() {
-        $page = new PageCategory([
-            "header" => false,
-            "footer" => false
+    $app->get("/FonesdeOuvido", function() {
+        $tecnologia = Category::Tecnologia();
+        $cartas = Category::Cartas();
+        $colecionaveis = Category::Colecionaveis();
+        $jogos = Category::Jogos();
+        $presentes = Category::Presentes();
+        $eventos = Category::Eventos();
+        $alimenticios = Category::Alimenticios();
+    
+        $page = new PageCategory();
+        $page->setTpl("header", [
+            'tecnologia' => $tecnologia,
+            'cartas'=> $cartas,
+            'jogos'=> $jogos,
+            'presentes'=> $presentes,
+            'eventos'=> $eventos,
+            'alimenticios'=> $alimenticios,
+            'colecionaveis' => $colecionaveis
         ]);
-
-        $page->setTpl('Camisetas');
+        $page->setTpl('FonesdeOuvido');
+    });
+    $app->get("/Xbox", function() {
+        $tecnologia = Category::Tecnologia();
+        $cartas = Category::Cartas();
+        $colecionaveis = Category::Colecionaveis();
+        $jogos = Category::Jogos();
+        $presentes = Category::Presentes();
+        $eventos = Category::Eventos();
+        $alimenticios = Category::Alimenticios();
+    
+        $page = new PageCategory();
+        $page->setTpl("header", [
+            'tecnologia' => $tecnologia,
+            'cartas'=> $cartas,
+            'jogos'=> $jogos,
+            'presentes'=> $presentes,
+            'eventos'=> $eventos,
+            'alimenticios'=> $alimenticios,
+            'colecionaveis' => $colecionaveis
+        ]);
+        $page->setTpl('Xbox');
     });
 $app->run();
 ?>

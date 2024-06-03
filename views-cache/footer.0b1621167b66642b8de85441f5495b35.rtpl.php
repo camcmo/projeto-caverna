@@ -1,4 +1,4 @@
-
+<?php if(!class_exists('Rain\Tpl')){exit;}?>
 
 <footer>
     <img src="/res/site/img/logo.png" alt="Logotipo" id="logo-footer" class="logo-footer"/>

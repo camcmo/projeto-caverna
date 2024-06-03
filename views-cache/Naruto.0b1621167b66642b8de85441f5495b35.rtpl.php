@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./style-cat.css">
+<?php if(!class_exists('Rain\Tpl')){exit;}?><link rel="stylesheet" href="./style-cat.css">
 <style>
     .page-dimension img {
         margin-top: 150px;

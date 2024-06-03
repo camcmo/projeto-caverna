@@ -23,15 +23,29 @@ class Import extends Category
         $routeName = preg_replace('/[^a-zA-Z0-9_]/', '', $routeName);
 
         return <<<PHP
-        \$app->get("/$routeName", function() {
-            \$page = new PageCategory([
-                "header" => false,
-                "footer" => false
-            ]);
+    \$app->get("/$routeName", function() {
+        \$tecnologia = Category::Tecnologia();
+        \$cartas = Category::Cartas();
+        \$colecionaveis = Category::Colecionaveis();
+        \$jogos = Category::Jogos();
+        \$presentes = Category::Presentes();
+        \$eventos = Category::Eventos();
+        \$alimenticios = Category::Alimenticios();
     
-            \$page->setTpl('$routeName');
-        });
-    PHP;
+        \$page = new PageCategory();
+        \$page->setTpl("header", [
+            'tecnologia' => \$tecnologia,
+            'cartas'=> \$cartas,
+            'jogos'=> \$jogos,
+            'presentes'=> \$presentes,
+            'eventos'=> \$eventos,
+            'alimenticios'=> \$alimenticios,
+            'colecionaveis' => \$colecionaveis
+        ]);
+        \$page->setTpl('$routeName');
+    });
+PHP;
+
     
     
     }

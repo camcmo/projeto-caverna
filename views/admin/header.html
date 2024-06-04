@@ -100,7 +100,7 @@
     <ul>
       <li class="toggle-btn">Cadastros</li>
       <ul id="slidebar">
-        <li><a href="./src/estoque/produtos.php">Produtos</a></li>
+        <li><a href="/admin/products">Produtos</a></li>
         <li><a href="./src/estoque/estoque.php">Estoque</a></li>
         <li><a href="/admin/users">Usuários</a></li>
         <li><a href="/admin/categories">Categorias</a></li>

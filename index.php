@@ -417,6 +417,13 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
 });
    
 
+$app->get('/admin/products', function () {
+	User::verifyLogin();
+	$page = new PageAdmin();
+
+	$page->setTpl("products-create");
+
+});
 
   
     $app->get("/Naruto", function() {
@@ -482,6 +489,8 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
         ]);
         $page->setTpl('FonesdeOuvido');
     });
+
+
     $app->get("/Xbox", function() {
         $tecnologia = Category::Tecnologia();
         $cartas = Category::Cartas();
@@ -502,6 +511,7 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
             'colecionaveis' => $colecionaveis
         ]);
         $page->setTpl('Xbox');
+		//colocar array vazio [products => []]
     });
 $app->run();
 ?>

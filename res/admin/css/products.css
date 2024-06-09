@@ -1,0 +1,41 @@
+:root{
+    --cor-de-fundo: rgb(146, 144, 144);
+    --cor-do-texto: rgb(67, 66, 66);
+
+}
+
+.content-wrapper h1{
+    background-color: var(--cor-do-texto);
+    color: var(--cor-de-fundo);
+    padding: 15px;
+    margin-bottom: 20px;
+    
+}
+
+.cabecalho th{
+    background-color: rgb(96, 103, 101);
+    padding: 10px;
+    border: 1px solid black;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+tbody td{
+    background-color: rgba(75, 69, 69, 0.818);
+    color: white;
+    padding: 10px;
+}
+
+.btn-success{
+    background-color: rgb(31, 29, 29);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.breadcrumb{
+    margin: 25px;
+}
+
+table{
+    margin: 20px;
+}

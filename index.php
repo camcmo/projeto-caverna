@@ -12,11 +12,13 @@ use \CavernaGames\Model\User;
 use \CavernaGames\Model\Category;
 use \CavernaGames\Model\Import;
 use \CavernaGames\Model\Incluse;
+use \CavernaGames\Model\Products;
 
 $app = new Slim();
 
 $app->config('debug', true);
 
+//criar require_once e organizar o código
 $app->get("/", function(){
 
 
@@ -419,12 +421,25 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
 
 $app->get('/admin/products', function () {
 	User::verifyLogin();
+
+	$products = Products::listAll();
+	$page = new PageAdmin();
+
+	$page->setTpl("products",[
+		"products"=> $products
+	]);
+
+	
+});
+$app->get('/admin/products/create', function () {
+	User::verifyLogin();
+
 	$page = new PageAdmin();
 
 	$page->setTpl("products-create");
 
+	
 });
-
   
     $app->get("/Naruto", function() {
         $tecnologia = Category::Tecnologia();

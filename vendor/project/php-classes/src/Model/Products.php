@@ -54,20 +54,18 @@ class Products extends Model
 	
 		$this->setData($results[0]);
     
-		$descategoryValue = $results[0]['descategory']; // Armazena o valor de descategory em uma variável
 		
-		return $descategoryValue; // Retorna apenas o valor de descategory como uma string
 	}
 	
 
 
 
-	public function get($idref)
+	public function get($idproduct)
 	{
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT * FROM tb_ref WHERE idref = :idref", [
-			':idref' => $idref
+		$results = $sql->select("SELECT * FROM tb_products WHERE idproduct = :idproduct", [
+			':idproduct' => $idproduct
 		]);
 
 		$this->setData($results[0]);
@@ -77,88 +75,12 @@ class Products extends Model
 	public function delete()
 	{
 		$sql = new Sql();
-		$sql->query('DELETE FROM tb_ref WHERE idref = 	:idref', [
-			':idref' => $this->getidref()
+		$sql->query('DELETE FROM tb_products WHERE idproduct = 	:idproduct', [
+			':idproduct' => $this->getidproduct()
 		]);
 	}
 
-	public static function Tecnologia()
-	{
-		$sql = new Sql();
 
-		return $sql->select("SELECT *
-		FROM tb_ref
-		WHERE desref = 'Tecnologia'");
-
-
-
-	}
-	public static function Cartas()
-	{
-		$sql = new Sql();
-
-		return $sql->select("SELECT *
-		FROM tb_ref
-		WHERE desref = 'Cartas de Magic'");
-
-
-
-	}
-	public static function Colecionaveis()
-	{
-		$sql = new Sql();
-
-		return $sql->select("SELECT *
-		FROM tb_ref
-		WHERE desref = 'Colecionáveis'");
-
-
-
-	}
-	public static function Jogos()
-	{
-		$sql = new Sql();
-
-		return $sql->select("SELECT *
-		FROM tb_ref
-		WHERE desref = 'Jogos'");
-
-
-
-	}
-	public static function Presentes()
-	{
-		$sql = new Sql();
-
-		return $sql->select("SELECT *
-		FROM tb_ref
-		WHERE desref = 'Presentes'");
-
-
-
-	}
-	public static function Eventos()
-	{
-		$sql = new Sql();
-
-		return $sql->select("SELECT *
-		FROM tb_ref
-		WHERE desref = 'Eventos'");
-
-
-
-	}
-	public static function Alimenticios()
-	{
-		$sql = new Sql();
-
-		return $sql->select("SELECT *
-		FROM tb_ref
-		WHERE desref = 'Alimentícios'");
-
-
-
-	}
 
 
 }

@@ -108,7 +108,7 @@
       <li class="toggle-btn-cup">Cupons e Descontos</li>
       <ul id="slidebar-cup">
         <li><a href="./src/estoque/cupons.php">Cupons</a></li>
-        <li><a href="./src/estoque/descontos.php">Descontos</a></li>
+        <li><a href="/admin/products/descontos">Descontos</a></li>
       </ul>
       <li class="toggle-btn-fr">Frete e Entregas</li>
       <ul id="slidebar-fr">

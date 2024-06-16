@@ -1,0 +1,45 @@
+:root{
+    --cor-de-fundo: rgb(146, 144, 144);
+    --cor-do-texto: rgb(67, 66, 66);
+
+}
+
+
+html{
+    background-color: var(--cor-de-fundo) ;
+}
+.container{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.container select{
+    width: 450px;
+    border: 1px solid black;
+    padding: 20px;
+    font-size: 25px;
+}
+.container option{
+    padding: 10px;
+}
+.container option:hover{
+    background-color: rgb(79, 75, 75);
+    color: white;
+    
+}
+
+.container h3{
+    background-color: var(--cor-do-texto);
+    color: white;
+    padding: 10px;
+
+}
+
+.container button{
+    background-color: rgb(150, 146, 146);
+    padding: 10px;
+    color: white;
+}

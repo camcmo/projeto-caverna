@@ -32,6 +32,16 @@
               <input type="text" class="form-control" id="desproduct" name="desproduct" placeholder="Digite o nome do produto">
             </div>
             <div class="form-group">
+              <label for="category">Categoria</label>
+              <select name="category">
+                <?php $counter1=-1;  if( isset($categories) && ( is_array($categories) || $categories instanceof Traversable ) && sizeof($categories) ) foreach( $categories as $key1 => $value1 ){ $counter1++; ?>
+
+                <option class="form-control" id="category" name="category"><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
+                <?php } ?>
+
+              </select>
+            </div>
+            <div class="form-group">
               <label for="vlprice">Preço</label>
               <input type="number" class="form-control" id="vlprice" name="vlprice" step="0.01" placeholder="0.00">
             </div>

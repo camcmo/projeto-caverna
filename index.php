@@ -434,77 +434,66 @@ $app->get('/admin/products', function () {
 $app->get('/admin/products/create', function () {
 	User::verifyLogin();
 
+	$categories = Category::listAll();
+
 	$page = new PageAdmin();
 
-	$page->setTpl("products-create");
+	$page->setTpl("products-create", [
+		"categories" => $categories
+	]);
 
 	
 });
-  
-    $app->get("/Naruto", function() {
-        $tecnologia = Category::Tecnologia();
-        $cartas = Category::Cartas();
-        $colecionaveis = Category::Colecionaveis();
-        $jogos = Category::Jogos();
-        $presentes = Category::Presentes();
-        $eventos = Category::Eventos();
-        $alimenticios = Category::Alimenticios();
-    
-        $page = new PageCategory();
-        $page->setTpl("header", [
-            'tecnologia' => $tecnologia,
-            'cartas'=> $cartas,
-            'jogos'=> $jogos,
-            'presentes'=> $presentes,
-            'eventos'=> $eventos,
-            'alimenticios'=> $alimenticios,
-            'colecionaveis' => $colecionaveis
-        ]);
-        $page->setTpl('Naruto');
-    });
-    $app->get("/Camisetas", function() {
-        $tecnologia = Category::Tecnologia();
-        $cartas = Category::Cartas();
-        $colecionaveis = Category::Colecionaveis();
-        $jogos = Category::Jogos();
-        $presentes = Category::Presentes();
-        $eventos = Category::Eventos();
-        $alimenticios = Category::Alimenticios();
-    
-        $page = new PageCategory();
-        $page->setTpl("header", [
-            'tecnologia' => $tecnologia,
-            'cartas'=> $cartas,
-            'jogos'=> $jogos,
-            'presentes'=> $presentes,
-            'eventos'=> $eventos,
-            'alimenticios'=> $alimenticios,
-            'colecionaveis' => $colecionaveis
-        ]);
-        $page->setTpl('Camisetas');
-    });
-    $app->get("/FonesdeOuvido", function() {
-        $tecnologia = Category::Tecnologia();
-        $cartas = Category::Cartas();
-        $colecionaveis = Category::Colecionaveis();
-        $jogos = Category::Jogos();
-        $presentes = Category::Presentes();
-        $eventos = Category::Eventos();
-        $alimenticios = Category::Alimenticios();
-    
-        $page = new PageCategory();
-        $page->setTpl("header", [
-            'tecnologia' => $tecnologia,
-            'cartas'=> $cartas,
-            'jogos'=> $jogos,
-            'presentes'=> $presentes,
-            'eventos'=> $eventos,
-            'alimenticios'=> $alimenticios,
-            'colecionaveis' => $colecionaveis
-        ]);
-        $page->setTpl('FonesdeOuvido');
-    });
+$app->post('/admin/products/create', function () {
+	User::verifyLogin();
 
+	$page = new PageAdmin();
+
+	$products = new Products();
+	$products->setData($_POST);
+	
+	$products->save();
+	
+	header("Location: /admin/products" );
+	exit;
+	
+
+	
+});
+$app->get('/admin/products/descontos', function () {
+	User::verifyLogin();
+
+	$page = new PageAdmin();
+
+	$page->setTpl("descontos");
+
+	
+});
+$app->get('/admin/products/descontos/create', function () {
+	User::verifyLogin();
+
+	$page = new PageAdmin();
+
+	$page->setTpl("descontos-create");
+
+	
+});
+$app->get('/admin/products/descontos/vincular', function () {
+	User::verifyLogin();
+
+	$page = new PageAdmin();
+	$products = Products::listAll();
+	$categories = Category::listAll();
+
+	$page->setTpl("descontos-vinc", [
+		"products"=> $products,
+		"categories"=> $categories
+	]);
+
+	
+});
+
+  
 
     $app->get("/Xbox", function() {
         $tecnologia = Category::Tecnologia();
@@ -526,7 +515,90 @@ $app->get('/admin/products/create', function () {
             'colecionaveis' => $colecionaveis
         ]);
         $page->setTpl('Xbox');
-		//colocar array vazio [products => []]
+    });
+    $app->get("/Fones", function() {
+        $tecnologia = Category::Tecnologia();
+        $cartas = Category::Cartas();
+        $colecionaveis = Category::Colecionaveis();
+        $jogos = Category::Jogos();
+        $presentes = Category::Presentes();
+        $eventos = Category::Eventos();
+        $alimenticios = Category::Alimenticios();
+    
+        $page = new PageCategory();
+        $page->setTpl("header", [
+            'tecnologia' => $tecnologia,
+            'cartas'=> $cartas,
+            'jogos'=> $jogos,
+            'presentes'=> $presentes,
+            'eventos'=> $eventos,
+            'alimenticios'=> $alimenticios,
+            'colecionaveis' => $colecionaveis
+        ]);
+        $page->setTpl('Fones');
+    });
+    $app->get("/Naruto", function() {
+        $tecnologia = Category::Tecnologia();
+        $cartas = Category::Cartas();
+        $colecionaveis = Category::Colecionaveis();
+        $jogos = Category::Jogos();
+        $presentes = Category::Presentes();
+        $eventos = Category::Eventos();
+        $alimenticios = Category::Alimenticios();
+    
+        $page = new PageCategory();
+        $page->setTpl("header", [
+            'tecnologia' => $tecnologia,
+            'cartas'=> $cartas,
+            'jogos'=> $jogos,
+            'presentes'=> $presentes,
+            'eventos'=> $eventos,
+            'alimenticios'=> $alimenticios,
+            'colecionaveis' => $colecionaveis
+        ]);
+        $page->setTpl('Naruto');
+    });
+    $app->get("/OnePiece", function() {
+        $tecnologia = Category::Tecnologia();
+        $cartas = Category::Cartas();
+        $colecionaveis = Category::Colecionaveis();
+        $jogos = Category::Jogos();
+        $presentes = Category::Presentes();
+        $eventos = Category::Eventos();
+        $alimenticios = Category::Alimenticios();
+    
+        $page = new PageCategory();
+        $page->setTpl("header", [
+            'tecnologia' => $tecnologia,
+            'cartas'=> $cartas,
+            'jogos'=> $jogos,
+            'presentes'=> $presentes,
+            'eventos'=> $eventos,
+            'alimenticios'=> $alimenticios,
+            'colecionaveis' => $colecionaveis
+        ]);
+        $page->setTpl('OnePiece');
+    });
+    $app->get("/DragonBall", function() {
+        $tecnologia = Category::Tecnologia();
+        $cartas = Category::Cartas();
+        $colecionaveis = Category::Colecionaveis();
+        $jogos = Category::Jogos();
+        $presentes = Category::Presentes();
+        $eventos = Category::Eventos();
+        $alimenticios = Category::Alimenticios();
+    
+        $page = new PageCategory();
+        $page->setTpl("header", [
+            'tecnologia' => $tecnologia,
+            'cartas'=> $cartas,
+            'jogos'=> $jogos,
+            'presentes'=> $presentes,
+            'eventos'=> $eventos,
+            'alimenticios'=> $alimenticios,
+            'colecionaveis' => $colecionaveis
+        ]);
+        $page->setTpl('DragonBall');
     });
 $app->run();
 ?>

@@ -23,39 +23,30 @@ class Products extends Model
 	
 
 	public function save()
-	{
-		$descategory = $this->getdescategory();
-		
-	
-		$sql = new Sql();
-	
-		$results = $sql->select(
-			'CALL sp_products_save (:idproduct, :desproduct, :vlprice, :vlwidth, :vlheigth, :vllength, :desurl, :vlweight)',
-			array(
-				":idproduct" => $this->getidproduct(),
-				":desproduct" => $this->getdesproduct(), // Usando a variável aqui
-				":vlprice" => $this->getvlprice(),
-				":vlwidth" => $this->getvlwidth(),
-				":vlprice" => $this->getvlprice(),
-				":vlwidth" => $this->getvlwidth(),
-				":vlheigth" => $this->getvlheigth(),
-				":vllength" => $this->getvllength(),
-				":desurl" => $this->getdesurl(),
-				":vlweigth" => $this->getvlweigth(),
+{
+    $sql = new Sql();
 
-
-
-
-
-
-
-				)
-		);
-	
-		$this->setData($results[0]);
+	$desurl = $_POST['desproduct'];
+	$desurl = preg_replace('/[-\s.]/', '', $desurl);
     
-		
-	}
+    $results = $sql->select(
+        'CALL sp_products_save (:idproduct, :desproduct, :vlprice, :vlwidth, :vlheight, :vllength, :vlweight, :desurl, :category)',
+        array(
+            ":idproduct" => $this->getidproduct(),
+            ":desproduct" => $this->getdesproduct(),
+            ":vlprice" => $this->getvlprice(),
+            ":vlwidth" => $this->getvlwidth(),
+            ":vlheight" => $this->getvlheight(),
+            ":vllength" => $this->getvllength(),
+            ":vlweight" => $this->getvlweight(),
+            ":desurl" => $desurl,
+            ":category" => $this->getcategory()
+        )
+    );
+    
+    $this->setData($results[0]);
+}
+
 	
 
 

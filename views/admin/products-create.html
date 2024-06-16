@@ -32,6 +32,14 @@
               <input type="text" class="form-control" id="desproduct" name="desproduct" placeholder="Digite o nome do produto">
             </div>
             <div class="form-group">
+              <label for="category">Categoria</label>
+              <select name="category">
+                {loop="$categories"}
+                <option class="form-control" id="category" name="category">{$value.descategory}</option>
+                {/loop}
+              </select>
+            </div>
+            <div class="form-group">
               <label for="vlprice">Preço</label>
               <input type="number" class="form-control" id="vlprice" name="vlprice" step="0.01" placeholder="0.00">
             </div>

@@ -9,7 +9,9 @@
   </h1>
   <ol class="breadcrumb">
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active"><a href="/admin/products">Produtos</a></li>
+    <li class="active"><a href="/admin/products/descontos">Promoções</a></li>
+    <li class="active"><a href="/admin/products/descontos/vincular">Vincular Promoções</a></li>
+
   </ol>
 </section>
 
@@ -27,6 +29,29 @@
            
             <!-- /.box-body -->
           </div>
+          <table class="table table-striped">
+            <thead class="cabecalho">
+              <tr>
+                <th style="width: 10px">Cód.Promo</th>
+                <th>Percentual</th>
+                <th>Data Início</th>
+                <th>Data Fim</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php $counter1=-1;  if( isset($promocoes) && ( is_array($promocoes) || $promocoes instanceof Traversable ) && sizeof($promocoes) ) foreach( $promocoes as $key1 => $value1 ){ $counter1++; ?>
+              <tr>
+                <td><?php echo htmlspecialchars( $value1["despromo"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                <td><?php echo htmlspecialchars( $value1["percentual"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                <td><?php echo htmlspecialchars( $value1["datainicio"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                <td><?php echo htmlspecialchars( $value1["datafim"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+
+
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+
   	</div>
   </div>
 

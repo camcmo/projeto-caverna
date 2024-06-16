@@ -29,11 +29,13 @@
         <form role="form" action="/admin/products/descontos/create" method="post">
           <div class="box-body">
             <div class="form-group">
+              <label for="despromo">Código</label>
+              <input type="text" class="form-control" id="despromo" name="despromo">
               <label for="duracao_inicio">Início</label>
-              <input type="date" class="form-control" id="duracao_inicio" name="duracao_inicio">
+              <input type="date" class="form-control" id="datainicio" name="datainicio">
               <label for="duracao_fim">Final</label>
-              <input type="date" class="form-control" id="duracao_fim" name="duracao_fim">
-              <input type="number" step="10.00" placeholder="Digite um percentual de desconto"/>
+              <input type="date" class="form-control" id="datafim" name="datafim">
+              <input type="number" step="0.01" placeholder="Digite um percentual de desconto" name="percentual"/>
             </div>
             
           <!-- /.box-body -->

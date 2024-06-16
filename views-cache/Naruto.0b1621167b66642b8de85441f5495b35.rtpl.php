@@ -1,19 +1,32 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><link rel="stylesheet" href="./style-cat.css">
-<style>
-    .page-dimension img {
-        margin-top: 150px;
-        width: 65%;
-        margin-bottom: 80px;
+<?php if(!class_exists('Rain\Tpl')){exit;}?>
+            <!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <link rel='stylesheet' href='style-cat.css'>
+                <title>Caverna Games -Naruto</title>
+            </head>
+            <body>
+            <style>
 
-    }
-
-    .page-dimension {
-        display: flex;
-        justify-content: center;
-
-    }
-</style>
-<div class="page-dimension">
-    <img src="/res/site/img/page.png" alt="Page" id="page" class="page" />
-
-</div>
+                .page-dimension img{
+                 margin-top: 150px;
+                width: 65%;
+                margin-bottom: 80px;
+        
+                }
+                 .page-dimension{
+                  display: flex;
+                justify-content: center;
+        
+                         }
+                </style>
+                <h1>Naruto</h1>
+                <div class='page-dimension'>
+                <img src='/res/site/img/page.png' alt='Page' id='page' class='page' />
+            
+            </div>
+            </body>
+            </html>
+            

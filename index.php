@@ -13,6 +13,7 @@ use \CavernaGames\Model\Category;
 use \CavernaGames\Model\Import;
 use \CavernaGames\Model\Incluse;
 use \CavernaGames\Model\Products;
+use \CavernaGames\Model\Promo;
 
 $app = new Slim();
 
@@ -464,11 +465,18 @@ $app->get('/admin/products/descontos', function () {
 	User::verifyLogin();
 
 	$page = new PageAdmin();
+	$promo = new Promo();
+	$promo = Promo::listAll();
 
-	$page->setTpl("descontos");
+	$page->setTpl("descontos", [
+		"promocoes" => $promo
+	]);
+	
+	
 
 	
 });
+
 $app->get('/admin/products/descontos/create', function () {
 	User::verifyLogin();
 
@@ -478,16 +486,32 @@ $app->get('/admin/products/descontos/create', function () {
 
 	
 });
+
+$app->post('/admin/products/descontos/create', function () {
+	User::verifyLogin();
+
+	$page = new PageAdmin();
+
+	$promo = new Promo();
+
+	$promo->setData($_POST);
+	$promo->save();
+	header("Location: /admin/products/descontos");
+	exit;
+
+	
+});
+
 $app->get('/admin/products/descontos/vincular', function () {
 	User::verifyLogin();
 
 	$page = new PageAdmin();
 	$products = Products::listAll();
-	$categories = Category::listAll();
+	$promocoes = Promo::listAll();
 
 	$page->setTpl("descontos-vinc", [
 		"products"=> $products,
-		"categories"=> $categories
+		"promocoes"=> $promocoes
 	]);
 
 	
@@ -600,5 +624,6 @@ $app->get('/admin/products/descontos/vincular', function () {
         ]);
         $page->setTpl('DragonBall');
     });
+ 
 $app->run();
 ?>

@@ -22,6 +22,7 @@ class Import extends Category
         // Sanitiza o nome da rota para evitar caracteres especiais
         $routeName = preg_replace('/[^a-zA-Z0-9_]/', '', $routeName);
 
+
         return <<<PHP
     \$app->get("/$routeName", function() {
         \$tecnologia = Category::Tecnologia();

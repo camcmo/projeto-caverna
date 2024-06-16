@@ -22,10 +22,10 @@
         <button onclick="desvincular()">←</button>
     </div>
     <div class="list">
-        <h3>Categorias</h3>
+        <h3>Promoções</h3>
         <select id="categorias" size="10" multiple>
-            <?php $counter1=-1;  if( isset($categories) && ( is_array($categories) || $categories instanceof Traversable ) && sizeof($categories) ) foreach( $categories as $key1 => $value1 ){ $counter1++; ?>
-            <option value="categoria"><?php echo htmlspecialchars( $value1["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
+            <?php $counter1=-1;  if( isset($promocoes) && ( is_array($promocoes) || $promocoes instanceof Traversable ) && sizeof($promocoes) ) foreach( $promocoes as $key1 => $value1 ){ $counter1++; ?>
+            <option value="categoria"><?php echo htmlspecialchars( $value1["despromo"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
             
             <?php } ?>
         </select>

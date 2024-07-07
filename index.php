@@ -516,6 +516,36 @@ $app->get('/admin/products/descontos/vincular', function () {
 
 	
 });
+$app->post('/admin/products/descontos/vincular', function () {
+	User::verifyLogin();
+
+	$page = new PageAdmin();
+	
+	$promo = new Promo();
+
+	$promo->setData($_POST);
+	$promo->vincular();
+	header("Location: /admin/products/descontos");
+	exit;
+
+	
+});
+$app->get('/admin/products/descontos/vinculados', function () {
+	User::verifyLogin();
+
+	$page = new PageAdmin();
+	$promo = new Promo();
+	$promo = Promo::listAllVinc();
+
+
+	$page->setTpl("descontos-vinculados", [
+		"promocoes" => $promo
+	]);
+	
+	
+
+	
+});
 
   
 

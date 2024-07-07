@@ -1,4 +1,4 @@
-<!-- Content Wrapper. Contains page content -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
 <link rel="stylesheet" href="/res/admin/css/products.css">
 
 <div class="content-wrapper">
@@ -33,23 +33,22 @@
           <table class="table table-striped">
             <thead class="cabecalho">
               <tr>
-                <th style="width: 10px">Cód.Promo</th>
-                <th>Percentual</th>
+                <th style="width: 10px">Produto</th>
+                <th>Promoção</th>
                 <th>Data Início</th>
                 <th>Data Fim</th>
               </tr>
             </thead>
             <tbody>
-              {loop="$promocoes"}
+              <?php $counter1=-1;  if( isset($promocoes) && ( is_array($promocoes) || $promocoes instanceof Traversable ) && sizeof($promocoes) ) foreach( $promocoes as $key1 => $value1 ){ $counter1++; ?>
               <tr>
-                <td>{$value.despromo}</td>
-                <td>{$value.percentual}</td>
-                <td>{$value.datainicio}</td>
-                <td>{$value.datafim}</td>
+                <td><?php echo htmlspecialchars( $value1["cod_prod"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                <td><?php echo htmlspecialchars( $value1["cod_promo"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                
 
 
               </tr>
-              {/loop}
+              <?php } ?>
             </tbody>
           </table>
 

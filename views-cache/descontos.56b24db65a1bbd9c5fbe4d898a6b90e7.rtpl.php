@@ -11,6 +11,7 @@
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
     <li class="active"><a href="/admin/products/descontos">Promoções</a></li>
     <li class="active"><a href="/admin/products/descontos/vincular">Vincular Promoções</a></li>
+    <li class="active"><a href="/admin/products/descontos/vinculados">Promoções Vinculadas</a></li>
 
   </ol>
 </section>

@@ -26,26 +26,35 @@ class Products extends Model
 {
     $sql = new Sql();
 
-	$desurl = $_POST['desproduct'];
-	$desurl = preg_replace('/[-\s.]/', '', $desurl);
-    
-    $results = $sql->select(
-        'CALL sp_products_save (:idproduct, :desproduct, :vlprice, :vlwidth, :vlheight, :vllength, :vlweight, :desurl, :category)',
-        array(
-            ":idproduct" => $this->getidproduct(),
-            ":desproduct" => $this->getdesproduct(),
-            ":vlprice" => $this->getvlprice(),
-            ":vlwidth" => $this->getvlwidth(),
-            ":vlheight" => $this->getvlheight(),
-            ":vllength" => $this->getvllength(),
-            ":vlweight" => $this->getvlweight(),
-            ":desurl" => $desurl,
-            ":category" => $this->getcategory()
-        )
-    );
-    
-    $this->setData($results[0]);
+   
+
+    $desurl = $_POST['desproduct'];
+    $desurl = preg_replace('/[-\s.]/', '', $desurl);
+	$url_img = $_POST['desphoto'];
+
+
+    $sql = new Sql();
+$sql->query(
+    'INSERT INTO tb_products (idproduct, desproduct, vlprice, vlwidth, vlheight, vllength, vlweight, desurl, category, url_img)
+    VALUES (:idproduct, :desproduct, :vlprice, :vlwidth, :vlheight, :vllength, :vlweight, :desurl, :category, :url_img)',
+    array(
+        ":idproduct" => $this->getidproduct(),
+        ":desproduct" => $this->getdesproduct(),
+        ":vlprice" => $this->getvlprice(),
+        ":vlwidth" => $this->getvlwidth(),
+        ":vlheight" => $this->getvlheight(),
+        ":vllength" => $this->getvllength(),
+        ":vlweight" => $this->getvlweight(),
+        ":desurl" => $desurl,
+        ":category" => $this->getcategory(),
+        ":url_img" => $url_img // Supondo que $imageDecode contém a URL da imagem em base64
+    )
+);
+
+
+   
 }
+
 
 	
 
@@ -72,6 +81,9 @@ class Products extends Model
 	}
 
 
+	// public function allImg(){
+	// 	$caminho = 'res' . DIRECTORY_SEPARATOR . 'site' . DIRECTORY_SEPARATOR. 'img' . DIRECTORY_SEPARATOR . 'products' . $url_img;
+	// }
 
 
 }

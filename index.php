@@ -14,6 +14,8 @@ use \CavernaGames\Model\Import;
 use \CavernaGames\Model\Incluse;
 use \CavernaGames\Model\Products;
 use \CavernaGames\Model\Promo;
+use \CavernaGames\Model\Photo;
+use \CavernaGames\Model\Repository;
 
 $app = new Slim();
 
@@ -30,7 +32,7 @@ $app->get("/", function(){
 	$presentes = Category::Presentes();
 	$eventos = Category::Eventos();
 	$alimenticios = Category::Alimenticios();
-
+	
 
 
     $page = new Page();
@@ -459,8 +461,64 @@ $app->post('/admin/products/create', function () {
 	exit;
 	
 
+
 	
 });
+$app->get('/admin/products/:idproduct', function ($idproduct) use ($app) {
+
+    User::verifyLogin();
+
+    // Instancia o modelo de Produto
+    $product = new Products();
+    $product->get((int)$idproduct);
+
+    // Instancia o modelo de Foto
+    $photo = new Photo();
+    $url_imagem = $photo->recuperaImagem((int)$idproduct);
+
+    // Instancia a página administrativa
+    $page = new PageAdmin();
+
+	// var_dump($url_imagem);
+    // Passa os valores para o template
+    $page->setTpl("products-update", [
+        'product' => $product->getValues(),
+        'url_imagem' => $url_imagem // Passa o caminho da imagem recuperada
+    ]);
+	
+
+});
+
+
+$app->post('/admin/products/:idproduct', function ($idproduct) {
+
+	User::verifyLogin();
+
+	$product = new Products();
+	$product->get((int)$idproduct);
+	var_dump($product);
+	$product->setData($_POST);
+	$product->save();
+
+	
+	
+	header('Location: /admin/products');
+	exit;
+
+});
+
+$app->get('/admin/products/:idproduct/delete', function ($idproduct) {
+	User::verifyLogin();
+
+	$product = new Products();
+
+	$product->get((int)$idproduct);
+	$product->delete();
+	
+	header('Location: /admin/products');
+	exit;
+});
+
 $app->get('/admin/products/descontos', function () {
 	User::verifyLogin();
 
@@ -600,6 +658,11 @@ $app->get('/admin/products/descontos/vinculados', function () {
         $eventos = Category::Eventos();
         $alimenticios = Category::Alimenticios();
     
+
+		
+		$category = "Naruto";
+		$filter = Repository::listAllCategory($category);
+		// var_dump($filter);
         $page = new PageCategory();
         $page->setTpl("header", [
             'tecnologia' => $tecnologia,
@@ -608,7 +671,8 @@ $app->get('/admin/products/descontos/vinculados', function () {
             'presentes'=> $presentes,
             'eventos'=> $eventos,
             'alimenticios'=> $alimenticios,
-            'colecionaveis' => $colecionaveis
+            'colecionaveis' => $colecionaveis,
+			'categories' => $filter
         ]);
         $page->setTpl('Naruto');
     });
@@ -655,5 +719,39 @@ $app->get('/admin/products/descontos/vinculados', function () {
         $page->setTpl('DragonBall');
     });
  
+    $app->get("/Funko%20POP", function() {
+        $tecnologia = Category::Tecnologia();
+        $cartas = Category::Cartas();
+        $colecionaveis = Category::Colecionaveis();
+        $jogos = Category::Jogos();
+        $presentes = Category::Presentes();
+        $eventos = Category::Eventos();
+        $alimenticios = Category::Alimenticios();
+    
+        $page = new PageCategory();
+
+		$filter = new Repository();
+		$category = "Funko POP";
+		$filter->listAllCategory($category);
+
+		
+        $page->setTpl("header", [
+            'tecnologia' => $tecnologia,
+            'cartas'=> $cartas,
+            'jogos'=> $jogos,
+            'presentes'=> $presentes,
+            'eventos'=> $eventos,
+            'alimenticios'=> $alimenticios,
+            'colecionaveis' => $colecionaveis
+        ]);
+
+		
+        $page->setTpl('Funko POP', [
+			"categories" => $filter
+		]);
+    });
+
+	
+	
 $app->run();
 ?>

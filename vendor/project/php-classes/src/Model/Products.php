@@ -60,18 +60,18 @@ $sql->query(
 
 
 
-	public function get($idproduct)
-	{
-		$sql = new Sql();
+	// public function get($idproduct)
+	// {
+	// 	$sql = new Sql();
 
-		$results = $sql->select("SELECT * FROM tb_products WHERE idproduct = :idproduct", [
-			':idproduct' => $idproduct
-		]);
+	// 	$results = $sql->select("SELECT * FROM tb_products WHERE idproduct = :idproduct", [
+	// 		':idproduct' => $idproduct
+	// 	]);
 
-		$this->setData($results[0]);
+	// 	$this->setData($results[0]);
 
 
-	}
+	// }
 	public function delete()
 	{
 		$sql = new Sql();

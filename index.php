@@ -14,6 +14,7 @@ use \CavernaGames\Model\Import;
 use \CavernaGames\Model\Incluse;
 use \CavernaGames\Model\Products;
 use \CavernaGames\Model\Promo;
+use \CavernaGames\Model\Cupom;
 use \CavernaGames\Model\Photo;
 use \CavernaGames\Model\Repository;
 
@@ -600,6 +601,25 @@ $app->get('/admin/products/descontos/vinculados', function () {
 		"promocoes" => $promo
 	]);
 	
+
+	
+
+	
+});
+
+$app->get('/admin/products/cupons', function () {
+	User::verifyLogin();
+
+	$page = new PageAdmin();
+	$cupom = new Cupom();
+	$cupom = Cupom::listAll();
+
+
+	$page->setTpl("descontos-cupons", [
+		"promocoes" => $cupom
+	]);
+	
+
 	
 
 	

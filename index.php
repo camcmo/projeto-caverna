@@ -17,6 +17,7 @@ use \CavernaGames\Model\Promo;
 use \CavernaGames\Model\Cupom;
 use \CavernaGames\Model\Photo;
 use \CavernaGames\Model\Repository;
+use \CavernaGames\Model\Painel;
 
 $app = new Slim();
 
@@ -607,6 +608,63 @@ $app->get('/admin/products/descontos/vinculados', function () {
 	
 });
 
+
+$app->get('/admin/painel', function () {
+	User::verifyLogin();
+
+
+	$page = new PageAdmin();
+
+	$painel = new Painel();
+	$painel = Painel::listAll();
+	
+
+
+
+	$page->setTpl("painel-gamer", [
+		"painel" => $painel
+	]);
+	
+
+	
+
+	
+});
+
+
+$app->get('/admin/painel/newgamer', function () {
+	User::verifyLogin();
+
+
+	$page = new PageAdmin();
+
+	$painel = new Painel();
+
+
+	$page->setTpl("painel-newgamer", [
+		"painel" => $painel
+	]);
+	
+
+	
+
+	
+});
+
+$app->post('/admin/newgamer/save', function () {
+	User::verifyLogin();
+
+	
+	
+	$painel = new Painel();
+
+	$painel->setData($_POST);
+	$painel->save();
+	header("Location: /admin/painel");
+	exit;
+
+	
+});
 $app->get('/admin/products/cupons', function () {
 	User::verifyLogin();
 

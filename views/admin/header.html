@@ -125,7 +125,7 @@
         <li><a href="./src/pedidos.php">Pedidos Abertos</a></li>
         <li><a href="./src/pedidos_fin.php">Pedidos Finalizados</a></li>
       </ul>
-      <li><a href="./src/painel_gamer.php">Painel Gamer</a></li>
+      <li><a href="/admin/painel">Painel Gamer</a></li>
 
       <h4>Atalhos Rápidos</h4>
       <div class="button-atl">
